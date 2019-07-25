@@ -16,6 +16,7 @@ axios.get(BASE_URL)
     console.log(response)
     data.push(...response.data.feed.entry)
     console.log(data)
+    //將name和location分別組成陣列
     data.forEach(item => {
       if (item.gs$cell.col === '1') {
         itemArray.push(item.gs$cell.$t)
@@ -26,6 +27,7 @@ axios.get(BASE_URL)
     })
     console.log(itemArray)
     console.log(boxLaction)
+    //將兩個陣列以物件方式結合
     arrangeItem(itemArray, boxLaction)
     putItemInBox(itemInBox)
     //displayBoxItem(data)
@@ -34,6 +36,7 @@ axios.get(BASE_URL)
     console.log(err)
   })
 
+//基本盒子元件
 function defaultBoxItem() {
   let htmlContent = `
     <button type="button" class="btn btn-light">1</button>
@@ -56,6 +59,7 @@ function defaultBoxItem() {
   dataPanel.innerHTML = htmlContent
 }
 
+//組合兩個陣列為物件
 function arrangeItem(array1, array2) {
   for (let i = 0; i < array1.length; i++) {
     itemInBox.push({ name: array1[i], location: array2[i] })
@@ -64,6 +68,7 @@ function arrangeItem(array1, array2) {
   console.log(itemInBox)
 }
 
+//將物件依照位置覆寫盒子元件
 function putItemInBox(array) {
   array.forEach(item => {
     const boxTarget = document.getElementById(item.location)
