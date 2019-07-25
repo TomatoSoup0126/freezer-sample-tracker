@@ -1,4 +1,7 @@
-const BASE_URL = 'https://spreadsheets.google.com/feeds/cells/1J19Q-C_KGpNqEqJVYkR0-CH1aOgBZh-LPkQOvSSOYNk/1/public/values?alt=json'
+const BASE_URL = 'https://spreadsheets.google.com/feeds/cells/'
+const key = '1J19Q-C_KGpNqEqJVYkR0-CH1aOgBZh-LPkQOvSSOYNk/'
+const page = '1'
+const josnURL = '/public/values?alt=json'
 
 const dataPanel = document.getElementById('data-panel')
 const colNumber = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
@@ -11,7 +14,7 @@ const itemInBox = []
 
 defaultBoxItem()
 
-axios.get(BASE_URL)
+axios.get(BASE_URL + key + page + josnURL)
   .then((response) => {
     console.log(response)
     data.push(...response.data.feed.entry)

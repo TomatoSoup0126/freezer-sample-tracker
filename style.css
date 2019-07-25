@@ -1,14 +1,13 @@
 
 .sidebar {
   margin: 1% 0 0 5%;
+  position: fixed;
 }
 
 .box-container{
   display: flex;
   min-width: 1100px;
   margin: 0 4.9%;
-  
-
 }
 
 button {
@@ -19,13 +18,16 @@ button {
   min-width: 90px;
   max-width: 90px;
   margin: 5px;
-
 }
 
 .col-11 {
   margin-left: 10px;
 }
 
+.col-10{
+  margin-left: 15%; 
+}
+
 #data-panel{
-  padding-left: 10px;
+  padding-left: 15px;
 }
